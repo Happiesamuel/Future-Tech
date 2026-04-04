@@ -1,0 +1,88 @@
+import { BsArrowUpRight } from "react-icons/bs";
+import { Button } from "./ui/button";
+import MobileNav from "./MobileNav";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+export default function Navbar() {
+  const links = [
+    {
+      name: "Home",
+      slug: "home",
+      route: "",
+    },
+    {
+      name: "News",
+      slug: "news",
+      route: "/news",
+    },
+    {
+      name: "Podcasts",
+      slug: "podcasts",
+      route: "/podcasts",
+    },
+    {
+      name: "Resources",
+      slug: "resources",
+      route: "/resources",
+    },
+  ];
+  const kiteRef = useRef<HTMLImageElement>(null);
+  const animateKite = (ref: React.RefObject<HTMLImageElement | null>) => {
+    if (!ref.current) return;
+    gsap.to(ref.current, {
+      rotation: 360,
+      duration: 2,
+      ease: "power2.inOut",
+      repeat: -1,
+      yoyo: true,
+      repeatDelay: 1.2,
+    });
+  };
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      animateKite(kiteRef);
+    });
+
+    return () => ctx.revert();
+  }, []);
+  return (
+    <div className="fixed w-full z-100 max-w-480 mx-auto my-0">
+      <div className="flex backdrop-blur-2xl items-center px-2 justify-between md:justify-center py-2 gap-2">
+        <p className="md:text-sm text-[10px] text-center  text-[#98989A]">
+          Subscribe to our Newsletter For New & latest Blogs and Resources
+        </p>
+        <BsArrowUpRight className="text-[#FFD11A] font-bold" />
+      </div>
+      <nav className="hidden bg-[#1A1A1A] py-1.5 lg:px-12 xl:px-20 lg:flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <img ref={kiteRef} className="size-10" src="/src/assets/logo.svg" />
+          <h4 className="text-white text-base font-semibold">Future Tech</h4>
+        </div>
+
+        <ul className="flex items-center gap-7">
+          {links.map((link) => (
+            <li
+              className={`text-[#7E7E81] hover:text-[#FFD11A] text-sm ${link.route === "" && "text-white border bg-[#141414] border-[#333333] px-4 py-2 rounded-md"} cursor-pointer`}
+            >
+              {link.name}
+            </li>
+          ))}
+        </ul>
+
+        <Button
+          size={"lg"}
+          className="bg-[#FFD11A] cursor-pointer  text-[#141414] text-sm"
+        >
+          Contact Us
+        </Button>
+      </nav>
+
+      <div className=" lg:hidden">
+        <MobileNav links={links} />
+      </div>
+    </div>
+  );
+}

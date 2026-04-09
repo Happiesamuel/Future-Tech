@@ -1,11 +1,11 @@
 import { BsArrowUpRight } from "react-icons/bs";
-import HeroUpdate from "./HeroUpdate";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FadeUpText from "@/lib/TextReveal";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import HeroUpdate from "./HeroUpdate";
 gsap.registerPlugin(ScrollTrigger);
 export default function HomeHeroSection() {
   const updates = [

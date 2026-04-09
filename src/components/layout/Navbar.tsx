@@ -7,6 +7,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 export default function Navbar() {
@@ -14,7 +15,7 @@ export default function Navbar() {
     {
       name: "Home",
       slug: "home",
-      route: "",
+      route: "/",
     },
     {
       name: "News",
@@ -74,12 +75,13 @@ export default function Navbar() {
 
         <ul className="flex items-center gap-7">
           {links.map((link) => (
-            <li
+            <Link
+              href={link.route}
               key={link.name}
               className={`text-[#7E7E81] hover:text-[#FFD11A] text-sm ${link.route === "" && "text-white border bg-[#141414] border-[#333333] px-4 py-2 rounded-md"} cursor-pointer`}
             >
               {link.name}
-            </li>
+            </Link>
           ))}
         </ul>
 

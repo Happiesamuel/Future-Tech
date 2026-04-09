@@ -7,6 +7,7 @@ import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../ui/sheet";
 import { useEffect, useRef } from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 export default function MobileNav({
@@ -74,12 +75,13 @@ export default function MobileNav({
           />
           <ul className="flex flex-col items-start gap-7">
             {links.map((link) => (
-              <SheetClose key={link.name}>
-                <li
+              <SheetClose asChild key={link.name}>
+                <a
+                  href={link.route}
                   className={`text-[#7E7E81] hover:text-[#FFD11A] text-sm ${link.route === "" && "text-[#ffd11a] "} cursor-pointer`}
                 >
                   {link.name}
-                </li>
+                </a>
               </SheetClose>
             ))}
           </ul>

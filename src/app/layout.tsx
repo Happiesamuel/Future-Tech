@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import SmoothScroll from "@/components/layout/SmoothScoll";
 import Footer from "@/components/layout/Footer";
+import App from "@/components/layout/App";
+import Revolution from "@/components/home/Revolution";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -45,9 +47,14 @@ export default function RootLayout({
                     backgroundPosition: "0 0, 0 0, 0 0, 40px 40px, center",
                   }}
                 />
-                <div className="max-w-480 mx-auto my-0">{children}</div>
+                <div className="max-w-480 mx-auto my-0">
+                  <App>
+                    {children}
+                    <Revolution />
 
-                <Footer />
+                    <Footer />
+                  </App>
+                </div>
               </div>
             </SmoothScroll>
           </div>

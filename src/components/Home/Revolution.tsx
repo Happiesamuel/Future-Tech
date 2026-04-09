@@ -1,3 +1,4 @@
+"use client";
 import { BsArrowUpRight } from "react-icons/bs";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
@@ -70,7 +71,7 @@ export default function Revolution() {
 
   return (
     <div
-      className="py-10 md:py-16 lg:py-20 md:px-6 px-4 lg:px-12 xl:px-20 w-full relative"
+      className="py-10 md:py-16 lg:py-20 md:px-6 px-4 lg:px-12 xl:px-20 w-full relative "
       style={{
         backgroundImage: `
           repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 40px),
@@ -97,7 +98,7 @@ export default function Revolution() {
           <TextReveal className="text-white font-medium text-xl md:text-2xl lg:text-4xl">
             Be Part of the Future Tech Revolution
           </TextReveal>
-          <FadeUpText className="text-xs font-normal text-zinc-400">
+          <FadeUpText className="text-xs text-justify font-normal text-zinc-400">
             Immerse yourself in the world of future technology. Explore our
             comprehensive resources, connect with fellow tech enthusiasts, and
             drive innovation in the industry. Join a dynamic community of

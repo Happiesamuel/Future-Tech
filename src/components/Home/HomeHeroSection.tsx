@@ -7,6 +7,31 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 import HeroUpdate from "./HeroUpdate";
 gsap.registerPlugin(ScrollTrigger);
+const animateCountUp = (
+  ref: React.RefObject<HTMLElement | null>,
+  target: number,
+  suffix = "",
+) => {
+  if (!ref.current) return;
+  gsap.to(
+    { val: 0 },
+    {
+      val: target,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ref.current,
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+      onUpdate: function () {
+        if (ref.current) {
+          ref.current.textContent = Math.round(this.targets()[0].val) + suffix;
+        }
+      },
+    },
+  );
+};
 export default function HomeHeroSection() {
   const updates = [
     {
@@ -31,32 +56,7 @@ export default function HomeHeroSection() {
   const countRef = useRef<HTMLSpanElement>(null);
   const countRef2 = useRef<HTMLSpanElement>(null);
   const countRef3 = useRef<HTMLSpanElement>(null);
-  const animateCountUp = (
-    ref: React.RefObject<HTMLElement | null>,
-    target: number,
-    suffix = "",
-  ) => {
-    if (!ref.current) return;
-    gsap.to(
-      { val: 0 },
-      {
-        val: target,
-        duration: 2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        },
-        onUpdate: function () {
-          if (ref.current) {
-            ref.current.textContent =
-              Math.round(this.targets()[0].val) + suffix;
-          }
-        },
-      },
-    );
-  };
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       animateCountUp(countRef, 300);

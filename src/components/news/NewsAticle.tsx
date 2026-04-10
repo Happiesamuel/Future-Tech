@@ -115,9 +115,12 @@ export default function NewsAticle() {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 font-normal text-xs cursor-pointer text-zinc-400 py-2 px-3 bg-[#141414] border border-[#262626] rounded-[8px]">
+            <a
+              href="/blog"
+              className="flex items-center gap-2 font-normal text-xs cursor-pointer text-zinc-400 py-2 px-3 bg-[#141414] border border-[#262626] rounded-[8px]"
+            >
               Read More <BsArrowUpRight className="text-[#ffd11a]  font-bold" />
-            </div>
+            </a>
           </div>
         </div>
       ))}

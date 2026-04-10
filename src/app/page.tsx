@@ -5,7 +5,6 @@ import HomeHeroSection from "@/components/home/HomeHeroSection";
 import Marquee from "@/components/home/Marquee";
 import Research from "@/components/home/Research";
 import Resources from "@/components/home/Resources";
-import Revolution from "@/components/home/Revolution";
 import {
   ShortSectionFour,
   ShortSectionOne,

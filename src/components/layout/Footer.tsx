@@ -78,7 +78,7 @@ export default function Footer() {
       title: "Blogs",
       links: [
         {
-          name: "Quantom Computingg",
+          name: "Quantom Computing",
           route: "/",
           type: null,
         },

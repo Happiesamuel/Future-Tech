@@ -140,12 +140,13 @@ export default function ExploreBlogs({ type }: { type: string }) {
                 </div>
               </div>
               <div className="md:hidden">
-                <p
+                <a
+                  href="/blog"
                   className={`text-zinc-400  bg-[#141414] cursor-pointer text-xs font-normal border flex items-center gap-1 w-fit border-[#262626] rounded-[8px] pl-4 pr-3 py-2.5`}
                 >
                   View Blog
                   <BsArrowUpRight className="text-[#ffd11a]  font-bold" />
-                </p>
+                </a>
               </div>
             </div>
             <div className="space-y-3">

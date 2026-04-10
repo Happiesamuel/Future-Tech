@@ -1,6 +1,7 @@
 "use client";
 import { ResourceShortSectionOne } from "@/components/layout/ShortSection";
 import ResourceResources from "@/components/resources/ResourceResources";
+import ResourceFuture from "@/components/resources/ResourcesFuture";
 import ResourcesHeader from "@/components/resources/ResourcesHeader";
 
 export default function Page() {
@@ -9,6 +10,7 @@ export default function Page() {
       <ResourcesHeader />
       <ResourceShortSectionOne />
       <ResourceResources />
+      <ResourceFuture />
     </div>
   );
 }

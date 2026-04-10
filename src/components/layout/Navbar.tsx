@@ -85,12 +85,14 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <Button
-          size={"lg"}
-          className="bg-[#FFD11A] cursor-pointer  text-[#141414] text-sm"
-        >
-          Contact Us
-        </Button>
+        <a className="" href="/contact-us">
+          <Button
+            size={"lg"}
+            className="bg-[#FFD11A] cursor-pointer  text-[#141414] text-sm"
+          >
+            Contact Us
+          </Button>
+        </a>
       </nav>
 
       <div className=" lg:hidden">

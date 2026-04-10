@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
+import { SheetClose } from "../ui/sheet";
 
 gsap.registerPlugin(ScrollTrigger);
 export default function Navbar() {
@@ -29,6 +31,7 @@ export default function Navbar() {
       route: "/resources",
     },
   ];
+  const router = useRouter();
   const kiteRef = useRef<HTMLImageElement>(null);
   const animateKite = (ref: React.RefObject<HTMLImageElement | null>) => {
     if (!ref.current) return;
@@ -75,12 +78,18 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <Button
-          size={"lg"}
-          className="bg-[#FFD11A] cursor-pointer  text-[#141414] text-sm"
+        <SheetClose
+          asChild
+          className="w-full"
+          onClick={() => router.push("/contact-us")}
         >
-          Contact Us
-        </Button>
+          <Button
+            size={"lg"}
+            className="bg-[#FFD11A] cursor-pointer  text-[#141414] text-sm"
+          >
+            Contact Us
+          </Button>
+        </SheetClose>
       </nav>
 
       <div className=" lg:hidden">

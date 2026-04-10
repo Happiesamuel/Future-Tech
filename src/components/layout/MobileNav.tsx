@@ -7,7 +7,7 @@ import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../ui/sheet";
 import { useEffect, useRef } from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 export default function MobileNav({
@@ -15,6 +15,7 @@ export default function MobileNav({
 }: {
   links: { name: string; slug: string; route: string }[];
 }) {
+  const router = useRouter();
   const kiteRef = useRef<HTMLImageElement>(null);
   const animateKite = (ref: React.RefObject<HTMLImageElement | null>) => {
     if (!ref.current) return;
@@ -85,10 +86,14 @@ export default function MobileNav({
               </SheetClose>
             ))}
           </ul>
-
-          <Button size={"lg"} className="bg-[#FFD11A]  text-[#141414] text-sm">
-            Contact Us
-          </Button>
+          <SheetClose className="w-full flex items-center">
+            <a
+              href="/contact-us"
+              className="bg-[#FFD11A] w-full! py-2 px-6 rounded-sm  text-[#141414] text-sm"
+            >
+              Contact Us
+            </a>
+          </SheetClose>
         </SheetContent>
       </Sheet>
     </nav>

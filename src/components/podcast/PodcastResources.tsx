@@ -12,7 +12,7 @@ export default function PodcastResources() {
   return (
     <div className="">
       <div className="flex items-center flex-col lg:flex-row justify-between">
-        <div className="flex-[0.7] justify-start w-full">
+        <div className="flex-[0.7] pt-6 justify-start w-full">
           <div className="space-y-4 mx-4 md:mx-0 pb-8 md:px-6 lg:px-12 xl:px-20 border-b md:border-b-0 border-zinc-600">
             <Image
               width={40}
@@ -59,7 +59,7 @@ export default function PodcastResources() {
       </div>
 
       <div className="flex items-center flex-col lg:flex-row justify-between lg:border-t  border-zinc-600">
-        <div className="flex-[0.7] justify-start w-full">
+        <div className="flex-[0.7] pt-6 justify-start w-full">
           <div className="space-y-4 mx-4 md:mx-0 pb-8 md:px-6 lg:px-12 xl:px-20 border-b md:border-b-0 border-zinc-600">
             <Image
               width={40}

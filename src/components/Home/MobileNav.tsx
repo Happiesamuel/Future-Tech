@@ -1,15 +1,11 @@
 import { BiMenuAltRight } from "react-icons/bi";
-import { Button } from "../components/ui/button";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTrigger,
-} from "../components/ui/sheet";
 import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../ui/sheet";
+import { Button } from "../ui/button";
 
 gsap.registerPlugin(ScrollTrigger);
 export default function MobileNav({
@@ -17,6 +13,7 @@ export default function MobileNav({
 }: {
   links: { name: string; slug: string; route: string }[];
 }) {
+  const router = useRouter();
   const kiteRef = useRef<HTMLImageElement>(null);
   const animateKite = (ref: React.RefObject<HTMLImageElement | null>) => {
     if (!ref.current) return;
@@ -41,7 +38,7 @@ export default function MobileNav({
       <div className="flex items-center gap-2">
         <img ref={kiteRef} className="size-8" src="/src/assets/logo.svg" />
         <h4 className="text-white text-sm md:text-base font-semibold">
-          Future Tech
+          Future Techs
         </h4>
       </div>
 
@@ -70,7 +67,7 @@ export default function MobileNav({
           />
           <ul className="flex flex-col items-start gap-7">
             {links.map((link) => (
-              <SheetClose>
+              <SheetClose key={link.name}>
                 <li
                   className={`text-[#7E7E81] hover:text-[#FFD11A] text-sm ${link.route === "" && "text-[#ffd11a] "} cursor-pointer`}
                 >
@@ -80,9 +77,19 @@ export default function MobileNav({
             ))}
           </ul>
 
-          <Button size={"lg"} className="bg-[#FFD11A]  text-[#141414] text-sm">
-            Contact Us
-          </Button>
+          <SheetClose
+            // asChild
+            className="w-full"
+            onClick={() => router.push("/contact-us")}
+          >
+            <Button
+              onClick={() => router.push("/contact-us")}
+              size={"lg"}
+              className="bg-[#FFD11A] w-full! cursor-pointer  text-[#141414] text-sm"
+            >
+              Contact Usw
+            </Button>
+          </SheetClose>
         </SheetContent>
       </Sheet>
     </nav>

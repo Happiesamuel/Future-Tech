@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import SmoothScroll from "@/components/layout/SmoothScoll";
-import Footer from "@/components/layout/Footer";
-import App from "@/components/layout/App";
-import Revolution from "@/components/home/Revolution";
-import Preloader from "@/components/layout/Preloader";
+import Navbar from "../components/layout/Navbar";
+import SmoothScroll from "../components/layout/SmoothScoll";
+import Footer from "../components/layout/Footer";
+import App from "../components/layout/App";
+import Revolution from "../components/home/Revolution";
+import Preloader from "../components/layout/Preloader";
 
 const geist = Geist({
   subsets: ["latin"],

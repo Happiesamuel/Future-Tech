@@ -1,6 +1,6 @@
 "use client";
 
-import ExploreBlogs from "@/components/home/ExploreBlogs";
+import ExploreBlogs from "../../src/components/home/ExploreBlogs";
 import HomeHeroSection from "@/components/home/HomeHeroSection";
 import Marquee from "@/components/home/Marquee";
 import Research from "@/components/home/Research";

@@ -25,8 +25,7 @@ export default function Preloader() {
       },
     });
 
-    tl.set(overlay, { display: "flex" })
-
+    tl
       // Start: small, rotated back
       .set(logo, { opacity: 0, scale: 0.3, rotation: -25 })
 
@@ -121,7 +120,7 @@ export default function Preloader() {
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-50 hidden flex-col items-center justify-center bg-[#1a1a1a] overflow-hidden"
+      className="fixed inset-0 z-999 flex flex-col items-center justify-center bg-[#1a1a1a] overflow-hidden"
       style={{ height: "100dvh", width: "100dvw" }}
     >
       <div

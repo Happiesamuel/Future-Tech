@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { ElementType, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
@@ -54,7 +54,7 @@ gsap.registerPlugin(ScrollTrigger);
 type FadeUpTextProps = {
   children: string;
   className?: string;
-  as?: keyof JSX.IntrinsicElements; // h1, h2, p, span etc
+  as?: ElementType; // h1, h2, p, span etc
   stagger?: number;
   duration?: number;
   blur?: number;
@@ -99,7 +99,6 @@ export function FadeUpText({
   }, []);
 
   return (
-    // @ts-ignore
     <Tag ref={textRef} className={className}>
       {children}
     </Tag>

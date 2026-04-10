@@ -1,6 +1,6 @@
 "use client";
 
-import ExploreBlogs from "../../../src/components/home/ExploreBlogs";
+import ExploreBlogs from "../../components/Home/ExploreBlogs";
 import {
   NewsShortSectionOne,
   NewsShortSectionTwo,

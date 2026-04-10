@@ -1,17 +1,17 @@
 "use client";
 
-import ExploreBlogs from "../../src/components/home/ExploreBlogs";
-import HomeHeroSection from "@/components/home/HomeHeroSection";
-import Marquee from "@/components/home/Marquee";
-import Research from "@/components/home/Research";
-import Resources from "@/components/home/Resources";
+import ExploreBlogs from "../components/Home/ExploreBlogs";
+import HomeHeroSection from "@/components/Home/HomeHeroSection";
+import Marquee from "@/components/Home/Marquee";
+import Research from "@/components/Home/Research";
+import Resources from "@/components/Home/Resources";
 import {
   ShortSectionFour,
   ShortSectionOne,
   ShortSectionThree,
   ShortSectionTwo,
 } from "@/components/layout/ShortSection";
-import Testimonial from "@/components/home/Testimonial";
+import Testimonial from "@/components/Home/Testimonial";
 
 export default function Home() {
   return (

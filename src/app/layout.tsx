@@ -5,7 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import SmoothScroll from "@/components/layout/SmoothScoll";
 import Footer from "@/components/layout/Footer";
 import App from "@/components/layout/App";
-import Revolution from "@/components/home/Revolution";
+import Revolution from "@/components/Home/Revolution";
 import Preloader from "@/components/layout/Preloader";
 
 const geist = Geist({

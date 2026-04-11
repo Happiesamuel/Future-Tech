@@ -13,8 +13,12 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <TransitionRouter
       auto
       leave={(next) => {
+        // Instantly scroll to top before transition so overlay is always visible
+        window.scrollTo({ top: 0, behavior: "instant" });
+
         const tl = gsap.timeline({ onComplete: next });
         document.body.style.overflow = "hidden";
+
         tl.set(overlayRef.current, { display: "flex", xPercent: -100 })
           // panel slides in
           .to(overlayRef.current, {
@@ -63,6 +67,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
         return () => tl.kill();
       }}
       enter={(next) => {
+        // Ensure page is at top when new page enters
+        window.scrollTo({ top: 0, behavior: "instant" });
+
         const tl = gsap.timeline();
         tl
           // logo rotates out
@@ -108,10 +115,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
       }}
     >
       <main>{children}</main>
+
       <div
         ref={overlayRef}
-        className="fixed inset-0 z-50 hidden flex-col items-center justify-center bg-[#1a1a1a] overflow-hidden"
-        style={{ height: "100dvh", width: "100dvw" }}
+        className="fixed inset-0 z-[9999] hidden flex-col items-center justify-center bg-[#1a1a1a] overflow-hidden"
+        style={{ height: "100dvh", width: "100dvw", top: 0, left: 0 }}
       >
         <div
           ref={accentRef}
@@ -121,7 +129,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         <div className="absolute top-0 left-0 w-40 h-40 rounded-full bg-[#ffd11a] opacity-5 blur-2xl pointer-events-none" />
 
         <div className="flex flex-col items-center gap-5">
-          <img ref={logoRef} src="/logo.svg" className="size-20" />
+          <img ref={logoRef} src="/logo.svg" className="size-20" alt="Logo" />
           <div ref={dotsRef} className="flex gap-2 opacity-0">
             {[0, 1, 2].map((i) => (
               <span

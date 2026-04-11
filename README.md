@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./banner.png" alt="Future Technologies Banner" />
+<img width="1024" height="1536" alt="Image" src="https://github.com/user-attachments/assets/d8058472-3b41-4cb1-bc0e-de6ac0f6cf6a" />
 </p>
 
 <h1 align="center">🚀 Future Tech</h1>

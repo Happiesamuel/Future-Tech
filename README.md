@@ -24,7 +24,7 @@
 
 🔗 https://futuree-tech.vercel.app/
 
----
+
 
 
 

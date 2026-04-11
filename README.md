@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/banner.png" alt="Future Technologies Banner" />
+  <img src="./banner.png" alt="Future Technologies Banner" />
 </p>
 
 <h1 align="center">🚀 Future Tech</h1>

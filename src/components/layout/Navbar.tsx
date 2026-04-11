@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 export default function Navbar() {
@@ -52,11 +53,13 @@ export default function Navbar() {
 
     return () => ctx.revert();
   }, []);
+  const pathname = usePathname();
+  const slug = pathname;
   return (
     <div className="fixed w-full z-100 max-w-480 mx-auto my-0">
       <div className="flex backdrop-blur-2xl items-center px-2 justify-between md:justify-center py-2 gap-2">
         <p className="md:text-sm text-[10px] text-center  text-[#98989A]">
-          Subscribe to our Newsletter For New & latest Blogs and Resources
+          Subscribe to our Newsletter For New & latest Blogs and Resourcess
         </p>
         <BsArrowUpRight className="text-[#FFD11A] font-bold" />
       </div>
@@ -78,7 +81,7 @@ export default function Navbar() {
             <Link
               href={link.route}
               key={link.name}
-              className={`text-[#7E7E81] hover:text-[#FFD11A] text-sm ${link.route === "" && "text-white border bg-[#141414] border-[#333333] px-4 py-2 rounded-md"} cursor-pointer`}
+              className={`text-[#7E7E81] hover:text-[#FFD11A] text-sm ${slug === link.route && "text-white border bg-[#141414] border-[#333333] px-3 py-1.5 rounded-md"} cursor-pointer`}
             >
               {link.name}
             </Link>

@@ -7,7 +7,7 @@ import { Sheet, SheetClose, SheetContent, SheetTrigger } from "../ui/sheet";
 import { useEffect, useRef } from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 export default function MobileNav({
@@ -35,6 +35,8 @@ export default function MobileNav({
 
     return () => ctx.revert();
   }, []);
+  const pathname = usePathname();
+  const slug = pathname;
   return (
     <nav className="lg:hidden bg-[#1A1A1A] py-2.5 px-4 md:px-6 flex items-center justify-between">
       <div className="flex items-center gap-2">
@@ -79,7 +81,7 @@ export default function MobileNav({
               <SheetClose asChild key={link.name}>
                 <a
                   href={link.route}
-                  className={`text-[#7E7E81] hover:text-[#FFD11A] text-sm ${link.route === "" && "text-[#ffd11a] "} cursor-pointer`}
+                  className={`text-[#7E7E81] hover:text-[#FFD11A] text-sm ${slug === link.route && "text-[#ffd11a]"} cursor-pointer`}
                 >
                   {link.name}
                 </a>
